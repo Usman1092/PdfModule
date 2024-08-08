@@ -37,32 +37,30 @@
 
 
 
+import { PDFDocument } from "pdf-lib";
 
-import { PDFDocument } from 'pdf-lib';
-
-async function ModifyPdf(file, signatureImage, position,signatureUrl) {
+async function modifyPdf(file, signatureUrl, position, scale) {
   const arrayBuffer = await file.arrayBuffer();
   const pdfDoc = await PDFDocument.load(arrayBuffer);
 
-
   const pages = pdfDoc.getPages();
   const firstPage = pages[0];
-  const { width, height } = firstPage.getSize();
+  const { height } = firstPage.getSize();
 
-  // Embed the signature image
-    
   if (signatureUrl) {
-    const signatureUrlBytes = await fetch(signatureUrl).then(res => res.arrayBuffer());
+    const signatureUrlBytes = await fetch(signatureUrl).then((res) =>
+      res.arrayBuffer()
+    );
     const signatureUrlEmbed = await pdfDoc.embedPng(signatureUrlBytes);
+    const scaledSignature = signatureUrlEmbed.scale(scale);
 
-    const signatureDims = signatureUrlEmbed.scale(0.5);
-    
+    // Add the signature to the PDF
 
     firstPage.drawImage(signatureUrlEmbed, {
-      x: 50,
-      y: height - 200 - signatureDims.height,
-      width: signatureDims.width,
-      height: signatureDims.height,
+      x: position.x,
+      y: height - position.y - scaledSignature.height,
+      width: scaledSignature.width,
+      height: scaledSignature.height,
     });
   }
 
@@ -70,4 +68,8 @@ async function ModifyPdf(file, signatureImage, position,signatureUrl) {
   return pdfBytes;
 }
 
-export default ModifyPdf;
+export default modifyPdf;
+
+
+
+
