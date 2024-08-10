@@ -149,43 +149,48 @@
 
 
 
+// final code
+// import React from "react";
+// import { Document, Page, pdfjs } from "react-pdf";
+// import Draggable from "react-draggable";
 
-import React from "react";
-import { Document, Page, pdfjs } from "react-pdf";
-import Draggable from "react-draggable";
+// pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+// const PdfViewer = ({
+//   file,
+//   signatureUrl,
+//   position,
+//   onPositionChange,
+//   scale,
+//   setScale,
+// }) => {
+//   const handleWheel = (e) => {
+//     if (e.deltaY < 0) {
+//       setScale((prevScale) => Math.min(prevScale + 0.05, 2));
+//     } else {
+//       setScale((prevScale) => Math.max(prevScale - 0.05, 0.1));
+//     }
+//   };
+//   console.log(signatureUrl);
+//   return (
+//     <div style={{ position: "relative" }} onWheel={handleWheel}>
+//       <Document file={file}>
+//         <Page
+//           pageNumber={1}
+//           renderTextLayer={false}
+//           renderAnnotationLayer={false}
+//         />
+        
+//       </Document>
+//     </div>
+//   );
+// };
 
-const PdfViewer = ({
-  file,
-  signatureUrl,
-  position,
-  onPositionChange,
-  scale,
-  setScale,
-}) => {
-  const handleWheel = (e) => {
-    if (e.deltaY < 0) {
-      setScale((prevScale) => Math.min(prevScale + 0.05, 2));
-    } else {
-      setScale((prevScale) => Math.max(prevScale - 0.05, 0.1));
-    }
-  };
-  console.log(signatureUrl);
-  return (
-    <div style={{ position: "relative" }} onWheel={handleWheel}>
-      <Document file={file}>
-        <Page
-          pageNumber={1}
-          renderTextLayer={false}
-          renderAnnotationLayer={false}
-        />
-      </Document>
-    </div>
-  );
-};
+// export default PdfViewer;
 
-export default PdfViewer;
+
+
+
 
 
 

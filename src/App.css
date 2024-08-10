@@ -1,18 +1,18 @@
 
 
 
-body {
+/* body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   background-color: #f5f5f5;
-}
+} */
 
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -23,4 +23,45 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: auto;
   height:auto;
+} */
+
+body {  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #f5f5f5;
+}
+
+.App {
+  
+ display: inline-block;
+  justify-content: center;
+    text-align: center;
+    margin-top: 5rem;
+ 
+  background-color: #ded1d1;
+  padding: 20px;
+  border-radius: 10px;
+}
+.pdf-upload
+{
+  margin-top: 20px;
+}
+.pdf-render{
+  margin-top: 10px;
+}
+.file{
+  display: flex;
+  justify-content: center;
+}
+.sign{
+  display: inline-block;
+  justify-content: center;
+}
+.DownloadButton{
+  margin-top: 10px;
 }
