@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@mui/material";
 import { PDFDocument } from "pdf-lib";
 
-const Download = ({ file, signatureUrl, position }) => {
+const Download = ({ file, signatureUrl, position,pdfDimensions }) => {
   const handleDownload = async () => {
     if (!file || !signatureUrl) {
       alert("Please upload a PDF and add a signature first.");

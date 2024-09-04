@@ -1,6 +1,4 @@
 import "./App.css";
-import PdfUpload from "./components/PdfUpload";
-import PDFViewer from "./components/PdfViewer";
 import Signature from "./components/Signature";
 import { Upload } from "./components/Upload";
 import Viewer from "./components/Viewer";
@@ -11,7 +9,7 @@ function App() {
   const [pdfFile, setPdfFile] = useState(null);
   const [signatureUrl, setSignatureUrl] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  
+  const [pdfDimensions, setPdfDimensions] = useState({ width: 0, height: 0 });
   const handleFileUpload = (fileUrl) => {
     setPdfFile(fileUrl);
   };
@@ -33,6 +31,7 @@ function App() {
           signatureUrl={signatureUrl}
           position={position}
           onDrag={handleDrag}
+          pdfDimensions={pdfDimensions}
         />
       )}
 
@@ -43,6 +42,7 @@ function App() {
           file={pdfFile}
           signatureUrl={signatureUrl}
           position={position}
+          pdfDimensions={pdfDimensions}
         />
       )}
     </div>

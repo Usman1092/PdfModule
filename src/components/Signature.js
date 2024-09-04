@@ -86,6 +86,7 @@ const Signature = ({ onSave }) => {
         }}
       >
         <SignatureCanvas
+        //  penColor=''
           ref={sigCanvas}
           canvasProps={{ width: 500, height: 200, className: "sigCanvas" }}
           
